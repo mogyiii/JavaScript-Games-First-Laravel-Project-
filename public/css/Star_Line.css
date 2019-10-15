@@ -1,0 +1,32 @@
+.starShip{
+    position: absolute;
+    z-index: 0 !important;
+}
+body{
+    overflow: hidden;
+}
+#wall { 
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+
+}
+.wave_cube{
+    background-color: rgb(82, 14, 209);
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    z-index: 999 !important;
+    animation-name: wave;
+    animation-iteration-count: infinite;
+    animation-duration: .2;
+}
+@keyframes wave{
+    0% {
+        background-color: rgb(82, 14, 209);
+    }
+    100% {
+        background-color: rgb(180, 21, 114);
+    }
+}
+

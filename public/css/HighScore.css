@@ -1,0 +1,12 @@
+.content_HighScore{
+    width: 100%;
+}
+.higscore_table{
+    color: rgb(206, 206, 206);
+    width: 100%;
+    text-align: center;
+}
+.table_cell{
+    width: 20%;
+    border: rgb(54, 52, 58) solid 1px;
+}

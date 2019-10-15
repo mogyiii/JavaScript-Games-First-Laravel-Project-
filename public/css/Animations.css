@@ -1,0 +1,20 @@
+@-webkit-keyframes backgroundcolor_animation {
+    0%{background-position:0% 86%}
+    50%{background-position:100% 15%}
+    100%{background-position:0% 86%}
+}
+@-moz-keyframes backgroundcolor_animation {
+    0%{background-position:0% 86%}
+    50%{background-position:100% 15%}
+    100%{background-position:0% 86%}
+}
+@-o-keyframes backgroundcolor_animation {
+    0%{background-position:0% 86%}
+    50%{background-position:100% 15%}
+    100%{background-position:0% 86%}
+}
+@keyframes backgroundcolor_animation {
+    0%{background-position:0% 86%}
+    50%{background-position:100% 15%}
+    100%{background-position:0% 86%}
+}

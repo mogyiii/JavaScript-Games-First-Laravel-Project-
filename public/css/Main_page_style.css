@@ -1,0 +1,106 @@
+html, body{
+    padding: 0;
+    margin: 0;
+    background-color: rgb(54, 52, 58);
+    color: rgb(223, 223, 223);
+}
+h1{
+    color: red !important;
+}
+p{
+    color: white;
+}
+.Menu{
+    background-color: rgb(39, 37, 44);
+    width: 100px;
+    height: 100%;
+    position: fixed;
+    transition: .8s;
+    z-index: 2;
+    overflow: hidden;
+    text-align: center;
+}
+.menu > a{
+    text-decoration: none;
+}
+.menu > a:hover{
+    text-decoration: none;
+}
+.logo{
+    width: 100%;
+    height: 200px;
+    color: rgb(82, 14, 209);
+    font-size: 3.5em;
+    transition: .3s;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+.menu-btn{
+    width: 100%;
+    height: 130px;
+    color: rgb(180, 21, 114);
+    font-size: 3.5em;
+    transition: .1s;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    border-right: 0px solid transparent;
+    border-image: linear-gradient(rgb(39, 37, 44), rgb(39, 37, 44)) 1 round;
+}
+
+.menu-btn:hover{
+    background-color: rgba(0, 0, 0, 0.5);
+    color: rgb(209, 14, 128);
+    border-right: 5px solid transparent;
+    border-image: linear-gradient(rgb(209, 14, 128), rgb(82, 14, 209)) 1 round;
+}
+.container-content{
+    width: calc(100% - 100px);
+    height: 100%;
+    /*background-color: transparent;*/
+    position: absolute;
+    left: 100px;
+    background: linear-gradient(233deg, rgb(54, 52, 58), rgb(48, 42, 51));
+    background-size: 400% 400%;
+    -webkit-animation: AnimationName 29s ease infinite;
+    -moz-animation: AnimationName 29s ease infinite;
+    -o-animation: AnimationName 29s ease infinite;
+    animation: AnimationName 29s ease infinite;
+}
+.start-btn{
+    color: white;
+    font-size: 3.5em;
+    margin: auto;
+    top: 35%;
+    position: relative;
+    width: 250px;
+    height: 250px;
+    transition: .3s;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    border: 5px solid transparent;
+    transition: .3;
+    /*border-image: linear-gradient(rgb(209, 14, 128), rgb(82, 14, 209)) 1 round;*/
+    background-image: linear-gradient(rgb(54, 52, 58), rgb(48, 42, 51)), linear-gradient(to top, rgb(209, 14, 128), rgb(82, 14, 209));
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.start-btn:hover{
+    background-image: linear-gradient(rgb(48, 42, 51), rgb(48, 42, 51)), linear-gradient(to top, rgba(209, 14, 128, .6), rgba(82, 14, 209, .6));
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    width: 245px;
+    height: 245px;
+    color: rgb(223, 223, 223);
+}
+.start-btn:active{
+    width: 240px;
+    height: 240px;
+}
