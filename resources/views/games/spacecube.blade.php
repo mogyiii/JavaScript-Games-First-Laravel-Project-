@@ -1,18 +1,24 @@
 @extends('index')
 @section('content')
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
     <link rel="stylesheet" type="text/css" href="{{ url('css/Star_Line.css') }}">
     <script src="{{ url('js/class/cube.js') }}"></script>
     <div id="wall">
         <img src="{{ url('img/game/StarShip/starship3.png') }}" class="starShip">
-        <div class="Start-btn">Start</div>
+        <div class="Start-btn">Start!</div>
+        <div class="Points">
+            <h4>UserName: {{ session('Username') }}</h4>
+            <h2>Point: <b class="point_value"></b></h2>
+        </div>
     </div>
     <script src="{{ url('js/jquery-3.4.1.min.js') }}"></script>
+    <script src="{{ url('js/notify.js') }}"></script>
     <script>
         $( document ).ready(function() {
             var end = false;
             var Cursor_Y;
             var Cursor_X;
-            var i = 0;
+            var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
             var array_obj = new Array();
             var height = $( document ).height();
             var width = $( document ).width();
@@ -41,6 +47,7 @@
                     return (this.Y + this.height);
                 }
             };
+
             $('body').css('cursor', 'none');
             $( document ).on( "mousemove", function( event ) {
                 $('.starShip').css({'top': event.clientY - 0,  'left': event.clientX - 116});
@@ -50,7 +57,9 @@
                 starship.set_X = $('.starShip').position().left;
             }); 
             $( ".Start-btn" ).click(function() {
-                $( ".Start-btn" ).remove();
+                var i = 0;
+                $( ".Start-btn" ).hide();
+                $('.wave_cube').remove()
                 var run = setInterval(Runn, 1);
                 function Runn(){
                     if(i%50==0){
@@ -67,11 +76,37 @@
                         if(!hitbox(parseInt(array_obj[j].get_X), parseInt(array_obj[j].get_Y))){
                             $("#" + parseInt(array_obj[j].get_id_cube)).css('background-color', 'white');
                             clearInterval(run);
-                            alert("End");
+                            array_obj.length = 0;
+                            $(".Start-btn").text("Retry...");
+                            $(".Start-btn").show(); 
+                            $.ajax({
+                                url: "{{ route('setHighScore') }}",
+                                type: "POST",
+                                data: {
+                                    _token: CSRF_TOKEN,
+                                    Username: "{{ session('Username')}}", 
+                                    Points: i,
+                                    GameName: "SpaceCube"
+                                },
+                                success: function( response ) {
+                                    if(response == 'true'){
+                                        $.notify('Score Updated!', {
+                                            style: 'bootstrap',
+                                            className: 'success',
+                                            position:"right"
+                                        }); 
+                                    }
+                                },
+                                error: function( response ){
+                                    console.log(response);
+                                    console.log(data);
+                                }
+                            });
                             break;
                         }
                     }
                     i++;
+                    $('.point_value').text(i);
                 }
             });
             function hitbox(X, Y){

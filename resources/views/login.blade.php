@@ -30,7 +30,6 @@
                         className: 'success',
                         position:"right"
                     }); 
-                    Cookies.set('UsersID', response);
                     $(location).attr('href', '/');
                 }else{
                     $.notify('Login Fail!', {
