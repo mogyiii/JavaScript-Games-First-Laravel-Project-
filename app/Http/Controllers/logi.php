@@ -9,8 +9,9 @@ class logi extends Controller
         $email = $request->input('email');
         $password = $request->input('password');
         if(DB::table('users')->where(['Email' => $email, 'Password' => md5($password)])->exists()){
-            $data = DB::table('users')->select('id')->where(['Email' => $email, 'Password' => md5($password)])->first();
+            $data = DB::table('users')->select('id', 'Username')->where(['Email' => $email, 'Password' => md5($password)])->first();
             session(['UsersID' => $data->id]);
+            session(['Username' => $data->Username]);
             return "true";
         }
         return "false";

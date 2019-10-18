@@ -39,4 +39,11 @@ class highscore extends Controller
         $output.= "</table>";
         return $output;
     }
+    public function setHighscore(Request $request){
+        $Username = $request->input('Username');
+        $Points = $request->input('Points');
+        $GameName = $request->input('GameName');
+        DB::select("INSERT INTO highscore (UsersID, GamesID, Score, created_at) VALUES ((SELECT id FROM users WHERE Username = '$Username'), (SELECT id FROM games WHERE GameName = '$GameName'), '$Points', NOW())");
+        return 'true';
+    }
 }
