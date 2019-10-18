@@ -91,6 +91,7 @@ p{
     background-clip: content-box, border-box;
     border-radius: 50%;
     cursor: pointer;
+    z-index: 3;
 }
 .start-btn:hover{
     background-image: linear-gradient(rgb(48, 42, 51), rgb(48, 42, 51)), linear-gradient(to top, rgba(209, 14, 128, .6), rgba(82, 14, 209, .6));
@@ -103,4 +104,10 @@ p{
 .start-btn:active{
     width: 240px;
     height: 240px;
+}
+.Points{
+    position: fixed;
+    bottom: 15px; 
+    color: rgb(180, 21, 114);
+    z-index: 0;
 }

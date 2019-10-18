@@ -1,6 +1,6 @@
 .starShip{
     position: absolute;
-    z-index: 0 !important;
+    z-index: 1 !important;
 }
 body{
     overflow: hidden;
@@ -16,7 +16,7 @@ body{
     width: 20px;
     height: 20px;
     position: absolute;
-    z-index: 999 !important;
+    z-index: 2;
     animation-name: wave;
     animation-iteration-count: infinite;
     animation-duration: .2;
