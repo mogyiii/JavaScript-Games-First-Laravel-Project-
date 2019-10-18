@@ -36,6 +36,7 @@ Route::post('/signin', 'logi@show')->name('SignIn');
 Route::post('/emailcheck', 'check_regist_ajax@showEmail')->name('Emailcheck');
 Route::post('/usernamecheck', 'check_regist_ajax@showUsername')->name('Usernamecheck');
 Route::post('/gethighscore', 'highscore@getConntent')->name('getHighScore');
+Route::post('/sethighscore', 'highscore@setHighscore')->name('setHighScore');
 Route::get('/highscore', 'highscore@getGames');
 /*Auth::routes();
 
